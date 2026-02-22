@@ -1,0 +1,41 @@
+Goals
+  * Setup local DNS filtering using Pi-hole.
+  * Learn the security benefits of DNS in a live envrionment.
+  * Reduce tracking and advertisements across devices on my home internet. 
+
+Tools Used
+  * Raspberry Pi 5
+  * Raspberry Pi OS
+  * Pi-hole
+  * SSH from MacOS
+  * Github blocklist
+  * Google Nest Wifi
+
+What I Did
+  * Installed and imaged the Pi OS onto the Raspberry Pi.
+  * Connected the device to my home internet via ethernet. 
+  * Used SSH to remotely run commands and manage the system. 
+  * Installed and configured Pi-hole.
+  * Imoprted blocklist from github and added some custom domains as well.
+  * Changed my home network settings to use my Pi-hole as the DNS server. 
+  * Monitored live traffic through the Pi-hole dashboard. 
+
+Why
+  * Used Raspberry Pi becuase it is a low power, always on device. 
+  * Managed the system over SSH to practice Linux adminstration,
+  * Implemented blocklist to increase DNS filtering.
+  * Reduce spam advertisements and analtyic tracking across home devices. 
+  * Learn how DNS traffic works and look for anamolies. 
+
+Problems
+  * All DNS request were coming from a single IP address. 
+      - All traffic in my Pi-hole dashboard was coming from a single IP, which I knew wasn't right. 
+        After some troubleshooting, I identifed that my router was forwarding DNS request to my Pi, causing it to see all request from a single IP. 
+        Becuase of the router I own, I cannot implement port forwarding, so i had to manually set the DNS on all of my devices. 
+        It is important to see what request come from which device for security and troubleshooting issues. 
+
+Learned
+  * How DNS works and insight into network traffic flows. 
+  * How DNS filtering can be a useful security tool.
+  * How to manage Linux devices remotely using SSH.
+  * The volume of DNS request that are generated daily. 
