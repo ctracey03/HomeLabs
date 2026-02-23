@@ -1,6 +1,6 @@
 Goals
   * Setup local DNS filtering using Pi-hole.
-  * Learn the security benefits of DNS in a live envrionment.
+  * Understand DNS behavior and its role in network security within a live environment.
   * Reduce tracking and advertisements across devices on my home internet. 
 
 Tools Used
@@ -8,7 +8,7 @@ Tools Used
   * Raspberry Pi OS
   * Pi-hole
   * SSH from MacOS
-  * Github blocklist
+  * Github DNS blocklist
   * Google Nest Wifi
 
 What I Did
@@ -16,8 +16,8 @@ What I Did
   * Connected the device to my home internet via ethernet. 
   * Used SSH to remotely run commands and manage the system. 
   * Installed and configured Pi-hole.
-  * Imoprted blocklist from github and added some custom domains as well.
-  * Changed my home network settings to use my Pi-hole as the DNS server. 
+  * Imported blocklist from github.
+  * Configured my network to use the Pi-hole IP address as the DNS server. 
   * Monitored live traffic through the Pi-hole dashboard. 
 
 Why
@@ -25,17 +25,17 @@ Why
   * Managed the system over SSH to practice Linux adminstration,
   * Implemented blocklist to increase DNS filtering.
   * Reduce spam advertisements and analtyic tracking across home devices. 
-  * Learn how DNS traffic works and look for anamolies. 
+  * Gain visibiilty into DNS traffic patterns and identify anomalies 
 
 Problems
   * All DNS request were coming from a single IP address. 
-      - All traffic in my Pi-hole dashboard was coming from a single IP, which I knew wasn't right. 
-        After some troubleshooting, I identifed that my router was forwarding DNS request to my Pi, causing it to see all request from a single IP. 
-        Becuase of the router I own, I cannot implement port forwarding, so i had to manually set the DNS on all of my devices. 
-        It is important to see what request come from which device for security and troubleshooting issues. 
-
+      - While monitoring the Pi-hole dashboard, all DNS queries were shown coming from one IP, and hitting the request limit very fast. 
+       After some troubleshooting, I determined that my router was forwarding DNS request insteal of allowing devices to communicate directly with my Pi-hole.
+       Because my router manages DHCP and DNS behabior internally, I could not configure DHCP to distributre Pi-hole as the default DNS server.
+       To restore per device visibility, I manually configured the Pi-hole IP address as the DNS server on my devices. 
+       This enabled Pi-hole to log request by client, and no more timeout issues. 
 Learned
-  * How DNS works and insight into network traffic flows. 
+  * How DNS resolution works and how traffic flows through a local network. 
   * How DNS filtering can be a useful security tool.
   * How to manage Linux devices remotely using SSH.
   * The volume of DNS request that are generated daily. 
