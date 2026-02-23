@@ -1,0 +1,42 @@
+Goals
+  * Install Docker to run multiple services without conflicts.
+  * Deploy Portainer for centralized container management. 
+  * Configure WireGuard VPN for secure remote access.  
+  * Enable remote SSH without exposing ports publicly.   
+  * Create a personal VPN for my devices. 
+
+Tools 
+  * Raspberry Pi 5
+  * Raspberry Pi OS
+  * Docker
+  * Portainer
+  * WireGuard
+
+What I Did
+  * Installed Docker on my Pi.
+  * Deployed Portainer to manage containers through a web interface. 
+  * Created a new Stack in Portainer.
+  * Wrote and deploted a Docker Compose configuraiton to run Wg-Easy.
+  * Confifured WireGuard throught the wg-easy web interface. 
+  * Created VPN clients for my phone and mac.
+  * Verfied remote SSH access to the Pi through the VPN tunnel.
+
+Why
+  * Docker: Runs services in isolated containers instead of installing directly on the OS.
+    Reduces the need to reimage the Pi for each projet, and preents conflicts with exsisting
+    services like my Pi-hole. 
+  * Portainer: Simplifiess container deployment and management through a GUI. 
+  * wg-easy: Streamlines the WireGuard setup and client management through a web interface.
+  * Remote Access: Lets me work on my labs from anywehre, rather than beinc confined to my room. 
+
+Problems
+  * Public vs Local IP
+    - After completing the setup, my VPN showed a succeful connectino, but remote SSH was still failing.
+      I discovered I had used my local IP address isntead of my public IP during the VPN configuration.
+      Updating the configuration resolved this issue, and allowed me to use SSH. 
+      This reinforced my understanding of how local networks communicate with public ones. 
+
+Learned
+  * The benefits of containerizaiton for managing multiple services.
+  * How VPNs work and can enable secure remote access without exposing services directly.
+  * How to deploy and manage stacks in portainer. 
