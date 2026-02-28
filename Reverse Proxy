@@ -1,0 +1,46 @@
+Goals
+* Implement a reverse proxy to centralize access to internal Docker services.
+* Introduce HTTPS encrpytion for internal applications. 
+* Prepare my lab for identity-based access control.
+* Maintain full isolation from my home network. 
+
+Tools
+* Raspberry Pi 5
+* Docker
+* Portainer
+* Nginx
+* Self signed certiface
+
+What I Did
+* Created a dedicated Docker network to allow internal container communication
+* Deployed Nginx Proxy Manager using Docker Compose. 
+* Mapped out and configured ports to avoid conflict. 
+* Attatched Portainer to my proxy network. 
+* Created a self signed certifiafe using openSSL. 
+
+Why
+* Used a reverse proxy to create a single controlled entry point to internal services.
+* Avoided direct IP:port access patterns and moved toward centralized routing. 
+* Implemented TLS terminatino at the proxy layer to simulate enterpise load balancing. 
+* Kept all changed isolated to Docker network without modifying my home netowrk. 
+* Built the foudnaitno for me to impelemnt MFA.
+
+Problems
+* Port Conflict
+  - Docker failed to start Nginx becuase port 80 was already in use.
+  - Identified the conflict as my pi hole something and remapped the proxy ports.
+*502 Error
+  - Initial proxy configuraiton returned 502 errors.
+  - Identifed the issue as a mispelling in my proxy settings.
+  - Corrected spelling and all was swell.
+* SSL Cert
+  - Had to manually create a certificate
+  - Generated a self signed cert using openSSL.
+  - Donwloaded the key and certifacte as a file, and uploaded to NPM.
+
+Learned
+* How reversee proxies route traffic based on domain name and upstream container name. 
+* How TLS termination works at the proxy layer.
+* How Docker container networking allows internal name based communicaton. 
+* How to identfiy and resolve port bindindg conflicts in a Linux evnrionemnt.
+* The differnece between host level ports and contatiner level prots. 
