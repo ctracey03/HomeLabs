@@ -20,14 +20,14 @@ What I Did
 * Created a proxy host in NPM to forward traffic to the portainer by container name. 
 * Enabled WebSocket support and basic exploit protection in proxy settings. 
 * Generated a self signed certificate using openSSL.
-* Configured TLS terminatino at the proxy layer and enabled forced HTTPS. 
+* Configured TLS termination at the proxy layer and enabled forced HTTPS. 
 
 Why
 * Used a reverse proxy to create a single controlled entry point to internal services.
 * Eliminated direct IP:port access patterns and moved toward centralized routing. 
 * Implemented TLS termination at the proxy layer to simulate enterpise load balancing behavior. 
 * Maintinaed full lab isolation by avoiding router level changes. 
-* Built the foudnaitno for me to impelemnt MFA and identity based access control.
+* Built the foundation for me to impelemnt MFA and identity based access control.
 
 Problems
 * Port Conflict
@@ -36,7 +36,7 @@ Problems
   - Resolved by remapping Nginx ports to 8080 and 8443 instead of modifying my pihole or router settings. 
 *502 Error
   - Initial proxy configuraiton returned 502 errors.
-  - Identifed the issue as a misspelling in the Forward Hostname field, reiterating the importance of being careful.
+  - Identified the issue as a misspelling in the Forward Hostname field, reiterating the importance of being careful.
 * SSL Cert
   - Had to manually generate a self signed certiface for interal HTTPS. 
   - Generated key and certifcate using openSSL.
@@ -48,4 +48,4 @@ Learned
 * How TLS termination works at the proxy layer. 
 * How Docker container networking enables internal name based communication.
 * The difference between host level ports and container level ports.
-* How loal DNS resolution impacts reverse proxy routing behavior. 
+* How local DNS resolution impacts reverse proxy routing behavior. 
