@@ -74,8 +74,6 @@ This structure allowed Group Policy and administrative tasks to be applied to th
 
 <img width="247" height="517" alt="AD OU Structure" src="https://github.com/user-attachments/assets/92f9971d-77b7-405b-9eea-cdd887af14d0" />
 
-
-
 ## Group Policy Configuration
 
 Group Policy Objects were created to centrally manage user and computer settings.
@@ -88,6 +86,8 @@ Configured policies included:
 - Automatic department drive mappings
 
 The drive mapping policy used Group Policy Preferences and item level targeting. Security group membership determined which drives appeared for each user. 
+
+<img width="785" height="533" alt="GPO Drive Mappings" src="https://github.com/user-attachments/assets/9647d885-2385-4057-acf3-78dac4b6c007" />
 
 ## Testing and Validation
 
@@ -103,6 +103,7 @@ The drive mapping policy used Group Policy Preferences and item level targeting.
 - SMB share and NTFS permission verification
 - Final domain controller health checks
 
+<img width="1115" height="231" alt="DomainController-Health" src="https://github.com/user-attachments/assets/f70efd88-7112-406c-9567-7708fa5e547d" />
 
 ## Problems Encountered and Resolutions
 
