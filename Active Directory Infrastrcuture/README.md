@@ -9,6 +9,7 @@
 
 ## Lab Architecture
   Host: Microsoft Surface Laptop
+  
   Hypervisor: Oracle VirtualBox
 
   DC01: 
