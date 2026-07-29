@@ -1,5 +1,5 @@
 ## Project Overview
-  Built an Active Directory environment using Windows Server 2022 and VirtualBox. Include a domain controller, Windows 10 client, DNS, Group Policy, departmental file shares, AGDLP permissions, and automatic drive mapping. 
+  Build an Active Directory environment using Windows Server 2022 and Oracle VirtualBox. Include a domain controller, Windows 10 client, DNS, Group Policy, departmental file shares, AGDLP permissions, and automatic drive mapping. 
 
 ## Project Goals
   * Gain Practical Windows Server and Active Directroy experinece
