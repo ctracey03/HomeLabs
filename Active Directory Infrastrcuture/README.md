@@ -25,6 +25,7 @@ CLIENT01:
   - IP: 192.168.50.10
 
 Domain: tracey.lab
+
 VirtualBox Network:  
   - LabNet-NAT
   - 192.168.50.0/24
