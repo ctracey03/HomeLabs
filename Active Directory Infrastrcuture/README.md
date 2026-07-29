@@ -72,9 +72,13 @@ Departmental OUs included:
 
 This structure allowed Group Policy and administrative tasks to be applied to the appropriate users and computers. 
 
+<img width="247" height="517" alt="AD OU Structure" src="https://github.com/user-attachments/assets/92f9971d-77b7-405b-9eea-cdd887af14d0" />
+
+
+
 ## Group Policy Configuration
 
-Group Policy Objects were cereted to centrally manage user and computer settings.
+Group Policy Objects were created to centrally manage user and computer settings.
 Configured policies included: 
 - Computer security baseline
 - User security baseline
