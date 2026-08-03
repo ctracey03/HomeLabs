@@ -17,7 +17,7 @@ This project documents the design and deployment of an on-premises Active Direct
 ## Lab Architecture
 
 ### Host System
-- Windows Surface Pro 6
+- Microsoft Surface Pro 6
 - Oracle VirtualBox Hypervisor
 ### DC01
 - Windows Server 2022
@@ -57,7 +57,7 @@ This project documents the design and deployment of an on-premises Active Direct
 
 ## Network and DNS Configuration 
 
-DC01 was configured with a static IP address and used as the internal DNS server for the domain. CLIEN01 was configured to use DC01 for DNS so that it could locate the domain controller and access domain resources. 
+DC01 was configured with a static IP address and used as the internal DNS server for the domain. CLIENT01 was configured to use DC01 for DNS so that it could locate the domain controller and access domain resources. 
 DNS testing confirmed that DC01 could resolve both internal domain records and external domain names through configured DNS forwarders. 
 
 ## Organizational Unit Design
@@ -73,6 +73,12 @@ Departmental OUs included:
 This structure allowed Group Policy and administrative tasks to be applied to the appropriate users and computers. 
 
 <img width="247" height="517" alt="AD OU Structure" src="https://github.com/user-attachments/assets/92f9971d-77b7-405b-9eea-cdd887af14d0" />
+
+## User, Group, and File Permission Design
+
+More than 15 domain user accounts were created and organized by department, with job titles, department assignments, and manager relationships configured to simulate a small business environment. Role-based security groups were implemented using the AGDLP model. Global security groups represented user roles, while Domain Local groups represetned acceesss to specefic file resources. 
+Accounts > Global Groups > Domain Local Groups > Permissions
+Departmental SMB shares were created for Finance, Human Resources, Information Technology, Operations, and General Staff. NTFS permissions were assigned to the appropriate Domain Local groups, while Access-Based Enumeration prevented users from seeing folders they were unauthorized to access. Testing confirmed that users could create, modify, and delete files within authorized folders while restricted folders remained hidden and inaccessible. 
 
 ## Group Policy Configuration
 
@@ -113,16 +119,19 @@ Resolution: Verified and enabled virtualization support before creating the virt
 Problem: Duplicate or ghost network adapter
 Resolution: Reviewed the active adapters and corrected the static network configuration
 
-Problem: DNS forwarding unsuccessful
-Resolution: Verified internal DNS first, then tested eternal name resolution through DC01
+Problem: DNS forwarding initially appeared unsuccesful
+Resolution: Verified internal DNS first, then tested external name resolution through DC01
 
 Problem: Windows installation media issues
 Resolution: Created the virtual machine instance first, and then uploaded the ISO file after the VM was created. 
+
+Problem: Incorrect security group scope
+Resolution: Identified a resource permission group that had been created with the wrong scope and corrected it to a Domain Local security group before applying NTFS permissions. 
 
 ## Project Limitations
 
 Because the host system only had 8GB of RAM, DC01 also hosted the departmental file shares. In a production environment, file services would normally be on their own separate server, rather than sharing the domain controller. 
 
-The environment also only used one domain controller. A production environment would normally have additionally domain controllers to support redundancy, replication, and fault tolerance. 
+The environment also only used one domain controller. A production environment would normally have additional domain controllers to support redundancy, replication, and fault tolerance. 
 
 This lab was isolated within VirtualBox and was not configured as an internet facing environment. 
