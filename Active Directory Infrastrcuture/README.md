@@ -60,6 +60,10 @@ This project documents the design and deployment of an on-premises Active Direct
 DC01 was configured with a static IP address and used as the internal DNS server for the domain. CLIENT01 was configured to use DC01 for DNS so that it could locate the domain controller and access domain resources. 
 DNS testing confirmed that DC01 could resolve both internal domain records and external domain names through configured DNS forwarders. 
 
+<img width="405" height="455" alt="CLIENT01 Domain Joined" src="https://github.com/user-attachments/assets/4efd6bcf-2f7a-431d-b37a-563366564265" />
+
+<img width="710" height="514" alt="DC01-Network_Config" src="https://github.com/user-attachments/assets/f38fe9fa-cc1c-4d5c-b356-5f01f07e8996" />
+
 ## Organizational Unit Design
 
 Organizational units were created to separate users, computers, administrative accounts, groups, servers, and disabled objects. 
@@ -80,6 +84,14 @@ More than 15 domain user accounts were created and organized by department, with
 Accounts > Global Groups > Domain Local Groups > Permissions
 Departmental SMB shares were created for Finance, Human Resources, Information Technology, Operations, and General Staff. NTFS permissions were assigned to the appropriate Domain Local groups, while Access-Based Enumeration prevented users from seeing folders they were unauthorized to access. Testing confirmed that users could create, modify, and delete files within authorized folders while restricted folders remained hidden and inaccessible. 
 
+<img width="739" height="406" alt="AD-GroupNesting" src="https://github.com/user-attachments/assets/0bb17cf2-e061-4434-ad3b-d6045cb682a2" />
+
+<img width="678" height="869" alt="Deparmtnet-NTFS-Permissions" src="https://github.com/user-attachments/assets/c8a57b5a-7ff1-4a8d-8867-6c0676754d0c" />
+
+<img width="782" height="485" alt="GlobalSecurityGroups" src="https://github.com/user-attachments/assets/c9b988eb-0c00-4c56-98a4-219e50b58cc7" />
+
+<img width="655" height="267" alt="SMB-AccessBased-Enumeration" src="https://github.com/user-attachments/assets/7827e3be-831e-41bd-9383-052ac23ccc23" />
+
 ## Group Policy Configuration
 
 Group Policy Objects were created to centrally manage user and computer settings.
@@ -94,6 +106,8 @@ Configured policies included:
 The drive mapping policy used Group Policy Preferences and item level targeting. Security group membership determined which drives appeared for each user. 
 
 <img width="785" height="533" alt="GPO Drive Mappings" src="https://github.com/user-attachments/assets/9647d885-2385-4057-acf3-78dac4b6c007" />
+
+<img width="1347" height="570" alt="Client01-GPReport-Result" src="https://github.com/user-attachments/assets/ffa46553-98ca-4be9-a214-a8b75270b80f" />
 
 ## Testing and Validation
 
