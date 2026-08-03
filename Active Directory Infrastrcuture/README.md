@@ -81,7 +81,9 @@ This structure allowed Group Policy and administrative tasks to be applied to th
 ## User, Group, and File Permission Design
 
 More than 15 domain user accounts were created and organized by department, with job titles, department assignments, and manager relationships configured to simulate a small business environment. Role-based security groups were implemented using the AGDLP model. Global security groups represented user roles, while Domain Local groups represetned acceesss to specefic file resources. 
+
 Accounts > Global Groups > Domain Local Groups > Permissions
+
 Departmental SMB shares were created for Finance, Human Resources, Information Technology, Operations, and General Staff. NTFS permissions were assigned to the appropriate Domain Local groups, while Access-Based Enumeration prevented users from seeing folders they were unauthorized to access. Testing confirmed that users could create, modify, and delete files within authorized folders while restricted folders remained hidden and inaccessible. 
 
 <img width="739" height="406" alt="AD-GroupNesting" src="https://github.com/user-attachments/assets/0bb17cf2-e061-4434-ad3b-d6045cb682a2" />
